@@ -1,0 +1,29 @@
+<!doctype html>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+var socket = io()
+socket.on('chat', function (msg) {
+	document.getElementById('chatting').
+		appendChild(document.createTextNode(msg + '\n'))
+})
+
+function sendMessage(form) {
+	var e = form.elements['text']
+	socket.emit('chat', e.value)
+	e.value = ''
+	return false
+}
+
+</script>
+
+<pre id="chatting">
+
+</pre>
+
+<form onsubmit="return sendMessage(this)">
+	<input name="text" autofocus>
+	<input type="submit">
+</form>
