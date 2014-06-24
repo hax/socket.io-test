@@ -14,4 +14,4 @@ io.on('connection', function (socket) {
 	})
 })
 
-http.listen(8888)
+http.listen(process.env.port || 3000)
