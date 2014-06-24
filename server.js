@@ -14,4 +14,4 @@ io.on('connection', function (socket) {
 	})
 })
 
-http.listen(80)
+http.listen(8888)
